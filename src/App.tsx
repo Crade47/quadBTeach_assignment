@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <div className="dark:bg-black">
+    <div className="dark:text-white dark:bg-black">
       
     </div>
   )
