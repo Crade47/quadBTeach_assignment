@@ -25,6 +25,7 @@ export default function Root() {
                 flex
                 items-center justify-between
                 p-5 
+                bg-lightMain
                 dark:text-white dark:bg-darkMain">
                 <img 
                     src={mainLogo} 
