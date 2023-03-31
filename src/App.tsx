@@ -1,7 +1,24 @@
+import { useState, useEffect } from "react"
+
 function App() {
+
+  const [isDark, setIsDark] = useState(true); 
+
+  useEffect(() => {
+    if (isDark){
+      document.documentElement.classList.add("dark")
+    }else{
+      document.documentElement.classList.remove("dark")
+    }
+  }, [isDark])
+  
+  const handleTheme = () =>{
+    setIsDark(isDark=>!isDark)
+  }
+
   return (
-    <div className="bg-red-800">
-      <h1>Hello World</h1>
+    <div className="dark:bg-black">
+      
     </div>
   )
 }
