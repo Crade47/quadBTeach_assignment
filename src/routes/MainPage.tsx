@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Carousel from "framer-motion-carousel";
 import MovieList from '../components/MovieList';
+import { Link } from 'react-router-dom';
 export interface MovieData{
     id:number,
     name:string,
@@ -57,8 +58,8 @@ const MainPage = () => {
 
   return (
     <>
-        <div className='bg-lightMain dark:bg-darkMain h-screen'>
-            <div className='h-screen'>
+        <div className='bg-lightMain dark:bg-darkMain '>
+            <div className='h-screen p-6'>
                 <Carousel 
                     interval={5000} autoPlay={false} loop={true}
                     
@@ -68,33 +69,35 @@ const MainPage = () => {
                             if(obj.image){
                                 return(
                                     <>
-                                        <img
-                                        draggable="false"
-                                        src={obj.image.original}
-                                        key={i}
-                                        width="100%"
-                                        alt={`${obj.name} carousel picture`}
-                                        className='overflow-hidden fixed left-0 top-0 opacity-60 h-screen'
-                                        />
-                                        <h1 
+                                        <Link to={`movies/${obj.id}`}>
+                                            <img
+                                            draggable="false"
+                                            src={obj.image.original}
+                                            key={i}
+                                            width="100%"
+                                            alt={`${obj.name} carousel picture`}
+                                            className='overflow-hidden fixed left-0 top-0 opacity-60 h-screen cursor-pointer'
+                                            />
+                                            <h1 
+                                                className='
+                                                text-4xl lg:text-6xl font-redHat font-bold text-white
+                                                bottom-[10rem] left-7 absolute'
+                                                key={obj.name}
+                                            >
+                                                    {obj.name}
+                                            </h1>
+                                            {
+                                            <h1 
+                                            key={obj.id}
                                             className='
-                                            text-4xl lg:text-6xl font-redHat font-bold text-white
-                                            bottom-[10rem] left-7 absolute'
-                                            key={obj.name}
-                                        >
-                                                {obj.name}
-                                        </h1>
-                                        {
-                                           <h1 
-                                           key={obj.id}
-                                           className='
-                                           text-white 
-                                           bottom-[7rem] left-7 absolute 
-                                           '
-                                           >
-                                               {obj.genres[0]}
-                                           </h1>
-                                        }
+                                            text-white 
+                                            bottom-[7rem] left-7 absolute 
+                                            '
+                                            >
+                                                {obj.genres[0]}
+                                            </h1>
+                                            }
+                                        </Link>
                                        
                                     </>  
                                 )

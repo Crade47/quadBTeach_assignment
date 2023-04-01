@@ -2,7 +2,7 @@ import mainLogo from '../../public/mainLogo.png'
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function Root() {
     const [isDark, setIsDark] = useState<boolean>(true); 
@@ -27,17 +27,20 @@ export default function Root() {
                 p-5 
                 bg-lightMain
                 dark:text-white dark:bg-darkMain">
-                <img 
-                    src={mainLogo} 
-                    alt="logo"
-                    className='w-12'
-                />
-
-                <h1 className='
-                mx-auto 
-                font-extrabold text-2xl text-center font-redHat dark:text-darkFont'>
-                    Movie Guide
-                </h1>
+                <Link to="/">
+                    <img 
+                        src={mainLogo} 
+                        alt="logo"
+                        className='w-12'
+                    />
+                </Link>
+                <Link to="/">
+                    <h1 className='
+                    mx-auto 
+                    font-extrabold text-2xl sm:text-4xl lg:text-5xl text-center font-redHat dark:text-darkFont'>
+                        Movie Guide
+                    </h1>
+                </Link>
 
                 <button onClick={handleTheme} className='text-xl'>
                     {
