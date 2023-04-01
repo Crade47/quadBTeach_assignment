@@ -31,18 +31,18 @@ export default function Root() {
                     <img 
                         src={mainLogo} 
                         alt="logo"
-                        className='w-12'
+                        className='w-12 md:w-[5.5rem]'
                     />
                 </Link>
                 <Link to="/">
                     <h1 className='
-                    mx-auto 
+                    -ml-4
                     font-extrabold text-4xl sm:text-5xl lg:text-7xl text-center font-lobster dark:text-darkFont'>
-                        Movie Guide
+                    Movie Guide
                     </h1>
                 </Link>
 
-                <button onClick={handleTheme} className='text-xl'>
+                <button onClick={handleTheme} className='text-xl md:text-2xl lg:text-3xl'>
                     {
                     isDark ? 
                         <FontAwesomeIcon icon={faSun} style={{color: "#f5f1e0",}} />
