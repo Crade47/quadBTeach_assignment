@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Carousel from "framer-motion-carousel";
-interface MovieData{
+import MovieList from '../components/MovieList';
+export interface MovieData{
     id:number,
     name:string,
     image: {
@@ -34,7 +35,6 @@ const MainPage = () => {
             console.log("getting data...")
             const res = await fetch("https://api.tvmaze.com/search/shows?q=all");
             const data:ShowData[] = await res.json();
-            console.log(data);
             setMovieData(data.map((obj: ShowData)=>({
                 id:obj.show.id,
                 name:obj.show.name,
@@ -47,13 +47,20 @@ const MainPage = () => {
 
         getMovieData();
     }, [])
-    console.log(movieData)
+
+    useEffect(() => {
+        localStorage.setItem('movieData', JSON.stringify(movieData));
+    
+    
+    }, [movieData])
+    
+
   return (
     <>
         <div className='bg-lightMain dark:bg-darkMain h-screen'>
-            <div className='h-[600px]'>
+            <div className='h-screen'>
                 <Carousel 
-                    interval={3000} autoPlay={true} loop={true}
+                    interval={5000} autoPlay={false} loop={true}
                     
                 >
                     {
@@ -67,11 +74,11 @@ const MainPage = () => {
                                         key={i}
                                         width="100%"
                                         alt={`${obj.name} carousel picture`}
-                                        className='overflow-hidden fixed left-0 top-0 opacity-60'
+                                        className='overflow-hidden fixed left-0 top-0 opacity-60 h-screen'
                                         />
                                         <h1 
                                             className='
-                                            text-5xl font-redHat font-bold text-white
+                                            text-4xl lg:text-6xl font-redHat font-bold text-white
                                             bottom-[10rem] left-7 absolute'
                                             key={obj.name}
                                         >
@@ -98,6 +105,7 @@ const MainPage = () => {
                     }
                 </Carousel>
             </div>
+            <MovieList moviesData={movieData}/>
         </div>
     </>
   )

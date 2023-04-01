@@ -10,3 +10,16 @@
     --dark-heading-color: #f44c7f;
     --dark-secondary-color: #cccecf;
   }
+
+.carousel{
+  clip-path: inset(0 0 70% 0);
+}
+
+.infoCard{
+  opacity: 0;
+  
+}
+
+.container:hover .infoCard{
+  opacity: 1;
+}
