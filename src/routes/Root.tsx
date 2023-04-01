@@ -37,7 +37,7 @@ export default function Root() {
                 <Link to="/">
                     <h1 className='
                     mx-auto 
-                    font-extrabold text-2xl sm:text-4xl lg:text-5xl text-center font-redHat dark:text-darkFont'>
+                    font-extrabold text-4xl sm:text-5xl lg:text-7xl text-center font-lobster dark:text-darkFont'>
                         Movie Guide
                     </h1>
                 </Link>

@@ -17,7 +17,8 @@ export default {
         "darkSecond": "var(--dark-secondary-color)"
       },
       fontFamily:{
-        redHat:['"Red Hat Display"', ...defaultTheme.fontFamily.sans]
+        redHat:['"Red Hat Display"', ...defaultTheme.fontFamily.sans],
+        lobster:['"Lobster"', ...defaultTheme.fontFamily.sans]
       }
     },
   },
